@@ -23,4 +23,12 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to "/users/home"
   end
+
+  def liste
+   unless @current_user.try(:role) == "admin"
+     flash[:error] = "Accès interdit"
+     redirect_to request.referrer || root_path	
+   end
+    @users =User.all
+  end
 end

@@ -1,9 +1,10 @@
 <% if @current_user %>
  <% if @current_user.role == "admin" %>
     <h1>Bienvenue maître <%= @current_user.name %> !</h1>
+    <a href="/users/liste">liste user</a>
  <% else %>
   <h1>(html) Bienvenue <%= @current_user.name %> !</h1>
-  <%= form_tag "/users/logout", method: :post do %>
+  <%= form_tag "/users/logout", method: :delete do %>
   <input type="submit" value="Se déconnecter" />
 <% end %>
 <% end%>

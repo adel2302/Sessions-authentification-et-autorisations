@@ -1,0 +1,9 @@
+ <h1>(html) Bienvenue <%= @current_user.name %> !</h1>
+  <%= form_tag "/users/logout", method: :delete do %>
+  <input type="submit" value="Se déconnecter" />
+  <% end %>
+ <ul>
+ <% @users.each do |user|%>
+  <li> <%= user.name %> </li>
+ <% end %>
+</ul>
