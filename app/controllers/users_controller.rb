@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
+
   def home
-  	if session[:user_id]
-    @current_user = User.find(session[:user_id])
-    end
+  end
 
   end
 
@@ -23,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   def logout
- session[:user_id] = nil
- redirect_to "/users/home"
+    session[:user_id] = nil
+    redirect_to "/users/home"
   end
-
 end
