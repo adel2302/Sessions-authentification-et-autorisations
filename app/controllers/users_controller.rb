@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   def home
   end
 
-  end
-
   def login
   end
 
