@@ -1,4 +1,9 @@
-<h1>Bienvenue</h1>
-<%= session[:test] %>
-<a href="/users/login">S'identifier</a>
-
+<% if @current_user %>
+  <h1>(html) Bienvenue <%= @current_user.name %> !</h1>
+  <%= form_tag "/users/logout", method: :post do %>
+  <input type="submit" value="Se déconnecter" />
+<% end %>
+<% else %>
+  <h1>Bienvenue visiteur anonyme !</h1>
+  <a href="/users/login">S'identifier</a>
+<% end %>
